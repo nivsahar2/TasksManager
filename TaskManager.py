@@ -8,6 +8,7 @@
 
 ##Imports
 import PySimpleGUI as sg
+from datetime import datetime
 from datetime import date
 import os
 import xml.etree.cElementTree as ET
@@ -53,13 +54,13 @@ def get_Tasks_List():
 ## A function that adds one task to the current to-do list
 ##
 #########################    
-def append_task(item):
+def append_task(item,date):
     
     tasks = get_Tasks_List()
    
     if item not in tasks and item is not None:
         
-        tasks.append(item)
+        tasks.append(item+"   "+ date)
         root = ET.Element("root")
         doc = ET.SubElement(root, "Task")
         
@@ -164,9 +165,19 @@ def main():
             break
                   
         elif event == 'Add new Task':
+            window['-inputDate-'].update()
             window['-inputTask-'].update()
-            append_task(values['-inputTask-'])
-      
+            
+            try:
+                task_date = datetime.strptime(values['-inputDate-'], '%d/%m/%Y').date()
+
+                if task_date > date.today():
+                    append_task(values['-inputTask-'],values['-inputDate-'])
+                else:
+                    sg.Popup("Canמםt enter date from before today's date", keep_on_top=True)
+            except ValueError:
+                    sg.Popup('Wrong date format', keep_on_top=True)
+
         elif event == 'Refresh List':
             refresh_Tasks_List()
       
@@ -182,4 +193,5 @@ def main():
     
 if __name__ == "__main__":
     main()
+    
     
