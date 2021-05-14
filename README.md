@@ -4,7 +4,7 @@ This is a beta version,
 This program is designed to manage your to-do list / chores.
 
 Options for this version:
--Add a task.
+- Add a task.
 - Delete a task.
 - View your to-do list.
 
