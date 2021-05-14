@@ -10,7 +10,7 @@ Options for this version:
 
 
 
-special things:
+*special things:
 
 You need to install the PySimpleGUI library
 
@@ -18,7 +18,7 @@ you can do that by the command:
 
 pip install PySimpleGUI
 
-activation:
+*activation:
 
 1) git clone "https://github.com/nivsahar2/TasksManager.git"
 
