@@ -14,7 +14,9 @@ special things:
 
 You need to install the PySimpleGUI library
 
-you can do that by the command: pip install PySimpleGUI
+you can do that by the command: 
+
+pip install PySimpleGUI
 
 activation:
 
