@@ -7,6 +7,8 @@ Options for this version:
 - Add a task.
 - Delete a task.
 - View your to-do list.
+- Make a google search
+- Look at my LinkedIn :)
 
 
 
