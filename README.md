@@ -12,11 +12,12 @@ Options for this version:
 
 *special things:
 
-You need to install the PySimpleGUI library
+You need to install the PySimpleGUI library and the pywhatkit library
 
-you can do that by the command: 
+you can do that by the commands: 
 
 pip install PySimpleGUI
+pip install pywhatkit
 
 *activation:
 
