@@ -2,9 +2,9 @@
 @author: nivsa
 @Date: 14/05/2021
 @Last Edited: 14/05/2021 By Niv Sahar
-
 """
 ##Imports
+#########################
 import PySimpleGUI as sg
 from datetime import datetime
 from datetime import date
@@ -15,6 +15,7 @@ import pywhatkit as pt
 
 
 ##Colors and designs
+#########################
 BORDER_COLOR = '#550FAA'
 DARK_HEADER_COLOR = '#000555'
 BPAD_TOP = ((20,20), (20, 10))
@@ -43,7 +44,9 @@ def get_Tasks_List():
         for elem in root:
             for subelem in elem:
                 tasks.append(subelem.text)
+   
     except Exception:
+    
         pass
     
     return tasks
@@ -81,10 +84,14 @@ def delete_Task(element):
     tree.parse(file_name)
 
     parents = tree.findall('Task')
+    
     for parent in parents:
+      
       childs = parent.findall('task')
+      
       for child in childs:
           element = ''.join(element)
+          
           if child.text == element:
               print(1)
               parent.remove(child)
@@ -103,10 +110,14 @@ def delete_All():
     tree.parse(file_name)
 
     parents = tree.findall('Task')
+    
     for parent in parents:
+    
       childs = parent.findall('task')
+      
       for child in childs:
           parent.remove(child)
+    
     tree.write(file_name)
     task_list = get_Tasks_List() 
     window['-LIST-'].update(task_list) 
@@ -126,7 +137,7 @@ down_banner = [[sg.Text('Developed by Niv Sahar'+' '*5, font='Any 12', backgroun
               ]]
     
 ## the code is separete to 3 blocks
-################################################################################################
+#############################################################################################################################
 #BLOCK 1
 block_Delete = [[sg.Text('Will be added later', font='Any 14'),],
             ]
@@ -152,10 +163,12 @@ layout = [[sg.Column(top_banner, size=(1120, 60), pad=(0,0), background_color=DA
 ## Create the window with title, layout we created, and designs    
 window = sg.Window('Task Manager', layout, margins=(0,0), background_color=BORDER_COLOR, no_titlebar=True, grab_anywhere=True)
 
+#############################################################################################################################3
+
 
 ## Refresh the tasks list
 ##
-#########################      
+#########################################      
 def refresh_Tasks_List():
     
     task_list = get_Tasks_List() 
@@ -165,8 +178,7 @@ def refresh_Tasks_List():
 
 ## Main function
 ##
-#########################################
-     
+#########################################    
 def main():
     
     while True: # Event Loop
@@ -221,7 +233,6 @@ def main():
             if values['-GOOGLE-'] != '':
                 pt.search(values['-GOOGLE-'])
                 window['-GOOGLE-'].update([])
-            
         ##############################################
              
     ## Close Windows    
@@ -229,7 +240,6 @@ def main():
     
 if __name__ == "__main__":
     main()
-    
     
     
     
