@@ -24,6 +24,6 @@ pip install PySimpleGUI
 
 2) cd TasksManager
 
-3) python TaskManager.py
+3) python TasksManager.py
 
 
