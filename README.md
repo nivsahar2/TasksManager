@@ -30,3 +30,6 @@ python3 -m pip install pywhatkit
 3) python TasksManager.py
 
 
+**If you want you can make an executable application with pyinstaller library
+
+
