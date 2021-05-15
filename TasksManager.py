@@ -220,6 +220,7 @@ def main():
         ## Make a google search if input not empty  
             if values['-GOOGLE-'] != '':
                 pt.search(values['-GOOGLE-'])
+                window['-GOOGLE-'].update([])
             
         ##############################################
              
