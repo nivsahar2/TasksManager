@@ -18,8 +18,8 @@ You need to install the PySimpleGUI library and the pywhatkit library
 
 you can do that by the commands: 
 
-pip install PySimpleGUI
-pip install pywhatkit
+python3 -m pip install PySimpleGUI
+python3 -m pip install pywhatkit
 
 *activation:
 
