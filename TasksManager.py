@@ -119,7 +119,7 @@ task_list = get_Tasks_List()
 top_banner = [[sg.Text('Task Manager'+ ' '*90, font='Any 20', background_color=DARK_HEADER_COLOR),
                    sg.Text(str(date.today()), font='Any 20', background_color=DARK_HEADER_COLOR)]]
 
-##Topic banner
+##Down banner
 down_banner = [[sg.Text('Developed by Niv Sahar'+' '*5, font='Any 12', background_color=DARK_HEADER_COLOR),
                 sg.Button('Click Me for my LinkedIn', font='Any 12'),sg.Text(' '*40 ,background_color=DARK_HEADER_COLOR),sg.Input('', font='Any 12',key='-GOOGLE-'),
                 sg.Button('Google Search', font='Any 12')
@@ -217,7 +217,7 @@ def main():
             pt.search("https://www.linkedin.com/in/niv-sahar-a815651b7/")
             
         elif event == 'Google Search':
-        ## Call delete all tasks function  
+        ## Make a google search if input not empty  
             if values['-GOOGLE-'] != '':
                 pt.search(values['-GOOGLE-'])
             
