@@ -4,7 +4,6 @@
 @Last Edited: 14/05/2021 By Niv Sahar
 
 """
-
 ##Imports
 import PySimpleGUI as sg
 from datetime import datetime
@@ -21,7 +20,7 @@ DARK_HEADER_COLOR = '#000555'
 BPAD_TOP = ((20,20), (20, 10))
 BPAD_LEFT = ((20,10), (0, 10))
 BPAD_LEFT_INSIDE = (0, 10)
-BPAD_RIGHT_INSIDE = (180, 10)
+BPAD_RIGHT_INSIDE = (250, 10)
 BPAD_RIGHT = ((10,20), (10, 20))
 
 
@@ -30,7 +29,6 @@ task_list = []
 ##get working directory
 cwd = os.getcwd()
 file_name = cwd+'\\Tasks_List.xml'
-
 
 ## A function that returns the current to-do list to be performed
 ##
@@ -122,8 +120,9 @@ top_banner = [[sg.Text('Task Manager'+ ' '*90, font='Any 20', background_color=D
                    sg.Text(str(date.today()), font='Any 20', background_color=DARK_HEADER_COLOR)]]
 
 ##Topic banner
-down_banner = [[sg.Text('Developed by Niv Sahar'+' '*20, font='Any 12', background_color=DARK_HEADER_COLOR),
-                sg.Button('Click Me for my LinkedIn', font='Any 12')
+down_banner = [[sg.Text('Developed by Niv Sahar'+' '*5, font='Any 12', background_color=DARK_HEADER_COLOR),
+                sg.Button('Click Me for my LinkedIn', font='Any 12'),sg.Text(' '*40 ,background_color=DARK_HEADER_COLOR),sg.Input('', font='Any 12',key='-GOOGLE-'),
+                sg.Button('Google Search', font='Any 12')
               ]]
     
 ## the code is separete to 3 blocks
@@ -144,11 +143,11 @@ block_List = [[sg.Text('Tasks List', font='Any 14')],
             ]              
     
 #Our program Layout
-layout = [[sg.Column(top_banner, size=(1100, 60), pad=(0,0), background_color=DARK_HEADER_COLOR)],
+layout = [[sg.Column(top_banner, size=(1120, 60), pad=(0,0), background_color=DARK_HEADER_COLOR)],
           [sg.Column([[sg.Column(block_Add, size=(450,150), pad=BPAD_LEFT_INSIDE)],
           [sg.Column(block_Delete, size=(450,150),  pad=BPAD_LEFT_INSIDE)]], pad=BPAD_LEFT, background_color=BORDER_COLOR),
-           sg.Column(block_List, size=(550, 320), pad=BPAD_RIGHT)],
-          [sg.Column(down_banner, size=(1100, 40), pad=(0,0), background_color=DARK_HEADER_COLOR)]]
+           sg.Column(block_List, size=(610, 320), pad=BPAD_RIGHT)],
+          [sg.Column(down_banner, size=(1120, 45), pad=(0,0), background_color=DARK_HEADER_COLOR)]]
 
 ## Create the window with title, layout we created, and designs    
 window = sg.Window('Task Manager', layout, margins=(0,0), background_color=BORDER_COLOR, no_titlebar=True, grab_anywhere=True)
@@ -216,6 +215,11 @@ def main():
         elif event == 'Click Me for my LinkedIn':
         ## Call delete all tasks function     
             pt.search("https://www.linkedin.com/in/niv-sahar-a815651b7/")
+            
+        elif event == 'Google Search':
+        ## Call delete all tasks function  
+            if values['-GOOGLE-'] != '':
+                pt.search(values['-GOOGLE-'])
             
         ##############################################
              
