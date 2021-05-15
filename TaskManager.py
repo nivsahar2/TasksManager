@@ -141,7 +141,7 @@ block_Add = [[sg.Text('Add new Task'+' '*25, font='Any 14'),sg.Text('Submitted D
             ]
 #BLOCK 3
 block_List = [[sg.Text('Tasks List', font='Any 14')],
-           [sg.Listbox(task_list, size=(72, 10), enable_events=True, key='-LIST-')],
+           [sg.Listbox(task_list, size=(72, 9), enable_events=True, key='-LIST-',font=("Helvetica", 15))],
             [ sg.Button('Refresh List',size=(10,2),pad=BPAD_LEFT_INSIDE), sg.Button('Delete Task',size=(10,2),pad=BPAD_LEFT_INSIDE),sg.Button('Delete All',size=(10,2),pad=BPAD_LEFT_INSIDE), sg.Button('Exit',size=(10,2),pad=BPAD_RIGHT_INSIDE)],
             ]
               
