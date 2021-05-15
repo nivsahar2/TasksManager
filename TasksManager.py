@@ -5,7 +5,6 @@
 
 """
 
-
 ##Imports
 import PySimpleGUI as sg
 from datetime import datetime
@@ -96,7 +95,6 @@ def delete_Task(element):
     task_list = get_Tasks_List() 
     window['-LIST-'].update(task_list) 
 
-    
  
 ## A function that remove all the tasks from the list
 ##
@@ -114,11 +112,6 @@ def delete_All():
     tree.write(file_name)
     task_list = get_Tasks_List() 
     window['-LIST-'].update(task_list) 
-    
-## Main function
-##
-#########################################
-    
     
     
 ##get all our tasks   
@@ -164,7 +157,11 @@ def refresh_Tasks_List():
 
     window['-LIST-'].update(task_list)   
  
-          
+
+## Main function
+##
+#########################################
+     
 def main():
     
     while True: # Event Loop
@@ -217,4 +214,5 @@ def main():
     
 if __name__ == "__main__":
     main()
+    
     
