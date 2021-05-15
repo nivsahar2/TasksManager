@@ -24,7 +24,6 @@ BPAD_RIGHT_INSIDE = (180, 10)
 BPAD_RIGHT = ((10,20), (10, 20))
 
 
-
 task_list = []
 
 ##get working directory
@@ -120,6 +119,10 @@ task_list = get_Tasks_List()
 ##Topic banner
 top_banner = [[sg.Text('Task Manager'+ ' '*90, font='Any 20', background_color=DARK_HEADER_COLOR),
                    sg.Text(str(date.today()), font='Any 20', background_color=DARK_HEADER_COLOR)]]
+
+##Topic banner
+down_banner = [[sg.Text('Developed by Niv Sahar', font='Any 12', background_color=DARK_HEADER_COLOR)
+              ]]
     
 ## the code is separete to 3 blocks
 ################################################################################################
@@ -143,7 +146,9 @@ block_List = [[sg.Text('Tasks List', font='Any 14')],
 layout = [[sg.Column(top_banner, size=(1100, 60), pad=(0,0), background_color=DARK_HEADER_COLOR)],
           [sg.Column([[sg.Column(block_Add, size=(450,150), pad=BPAD_LEFT_INSIDE)],
           [sg.Column(block_Delete, size=(450,150),  pad=BPAD_LEFT_INSIDE)]], pad=BPAD_LEFT, background_color=BORDER_COLOR),
-           sg.Column(block_List, size=(550, 320), pad=BPAD_RIGHT)]]
+           sg.Column(block_List, size=(550, 320), pad=BPAD_RIGHT)],
+          [sg.Column(down_banner, size=(1100, 40), pad=(0,0), background_color=DARK_HEADER_COLOR)]]
+
 ## Create the window with title, layout we created, and designs    
 window = sg.Window('Task Manager', layout, margins=(0,0), background_color=BORDER_COLOR, no_titlebar=True, grab_anywhere=True)
 
@@ -214,5 +219,6 @@ def main():
     
 if __name__ == "__main__":
     main()
+    
     
     
