@@ -12,6 +12,7 @@ from datetime import date
 import os
 import xml.etree.cElementTree as ET
 from xml.etree.ElementTree import ElementTree
+import pywhatkit as pt
 
 
 ##Colors and designs
@@ -121,7 +122,8 @@ top_banner = [[sg.Text('Task Manager'+ ' '*90, font='Any 20', background_color=D
                    sg.Text(str(date.today()), font='Any 20', background_color=DARK_HEADER_COLOR)]]
 
 ##Topic banner
-down_banner = [[sg.Text('Developed by Niv Sahar', font='Any 12', background_color=DARK_HEADER_COLOR)
+down_banner = [[sg.Text('Developed by Niv Sahar'+' '*20, font='Any 12', background_color=DARK_HEADER_COLOR),
+                sg.Button('Click Me for my LinkedIn', font='Any 12')
               ]]
     
 ## the code is separete to 3 blocks
@@ -139,8 +141,7 @@ block_Add = [[sg.Text('Add new Task'+' '*25, font='Any 14'),sg.Text('Submitted D
 block_List = [[sg.Text('Tasks List', font='Any 14')],
            [sg.Listbox(task_list, size=(72, 9), enable_events=True, key='-LIST-',font=("Helvetica", 15))],
             [ sg.Button('Refresh List',size=(10,2),pad=BPAD_LEFT_INSIDE), sg.Button('Delete Task',size=(10,2),pad=BPAD_LEFT_INSIDE),sg.Button('Delete All',size=(10,2),pad=BPAD_LEFT_INSIDE), sg.Button('Exit',size=(10,2),pad=BPAD_RIGHT_INSIDE)],
-            ]
-              
+            ]              
     
 #Our program Layout
 layout = [[sg.Column(top_banner, size=(1100, 60), pad=(0,0), background_color=DARK_HEADER_COLOR)],
@@ -212,6 +213,10 @@ def main():
         elif event == 'Delete All':
         ## Call delete all tasks function     
             delete_All()
+        elif event == 'Click Me for my LinkedIn':
+        ## Call delete all tasks function     
+            pt.search("https://www.linkedin.com/in/niv-sahar-a815651b7/")
+            
         ##############################################
              
     ## Close Windows    
@@ -219,6 +224,7 @@ def main():
     
 if __name__ == "__main__":
     main()
+    
     
     
     
