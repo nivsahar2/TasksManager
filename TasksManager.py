@@ -193,26 +193,30 @@ def main():
             break
                   
         elif event == 'Add new Task':
-
-            try:
-                task_date = datetime.strptime(values['-inputDate-'], '%d/%m/%Y').date()
             
-            ##  Check if the date is bigger then today date
-                if task_date > date.today():
-            
-            ## Check for task that less than 40 chars        
-                    if len(values['-inputTask-']) < 40:
-            ## Call append_task function
-                        append_task(values['-inputTask-'],values['-inputDate-'])
-                else:
-                    sg.Popup("Cannot enter date from before today's date", keep_on_top=True)
-            ## Exception if the date is not in the format 'xx/xx/xxxx'
-            except ValueError:
-                    sg.Popup('Wrong date format', keep_on_top=True)
-            
-            ## Clear inputs
-            window['-inputDate-'].update()
-            window['-inputTask-'].update()
+            if values['-inputTask-'] != '':
+                
+                try:
+                    task_date = datetime.strptime(values['-inputDate-'], '%d/%m/%Y').date()
+                
+                ##  Check if the date is bigger then today date
+                    if task_date > date.today():
+                
+                ## Check for task that less than 40 chars        
+                        if len(values['-inputTask-']) < 40:
+                ## Call append_task function
+                            append_task(values['-inputTask-'],values['-inputDate-'])
+                    else:
+                        sg.Popup("Cannot enter date from before today's date", keep_on_top=True)
+                ## Exception if the date is not in the format 'xx/xx/xxxx'
+                except ValueError:
+                        sg.Popup('Wrong date format', keep_on_top=True)
+                
+                ## Clear inputs
+                window['-inputDate-'].update()
+                window['-inputTask-'].update()
+            else:
+                sg.Popup('Empty Field', keep_on_top=True)
             
         elif event == 'Refresh List':
         ## Call refresh list function
@@ -240,6 +244,10 @@ def main():
     
 if __name__ == "__main__":
     main()
+    
+    
+    
+
     
     
     
