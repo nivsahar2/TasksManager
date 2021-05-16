@@ -213,8 +213,8 @@ def main():
                         sg.Popup('Wrong date format', keep_on_top=True)
                 
                 ## Clear inputs
-                window['-inputDate-'].update()
-                window['-inputTask-'].update()
+                window['-inputDate-'].update([])
+                window['-inputTask-'].update([])
             else:
                 sg.Popup('Empty Field', keep_on_top=True)
             
